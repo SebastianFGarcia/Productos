@@ -1,0 +1,473 @@
+$bg-body:hsl(227, 33%, 92%)
+$white:hsl(0, 0%, 100%)
+$purple:hsl(250, 61%, 55%)
+$dark-purple:hsl(252, 61%, 15%)
+$purple-light:hsl(252, 100%, 95%)
+$purple_desatured:hsl(249, 28%, 73%)
+$gray:hsl(0, 0%, 59%)
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap')
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    background-color: $bg-body
+    font-family: 'Poppins', sans-serif
+
+.nav
+    margin: 1em
+    background: $white
+    padding: 1em
+    border-radius: 1em
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .nav__logo
+        font-size: 2rem
+        font-weight: 600
+        color: $purple
+        text-transform: uppercase
+        letter-spacing: 1px
+        padding: 1rem 0
+        cursor: pointer
+    .nav__links
+        display: flex
+        align-items: center
+        list-style: none
+        .nav__link
+            margin: 0 0.5rem
+            font-size: 1rem
+            font-weight: 500
+            color: $purple
+            letter-spacing: 1px
+            padding: 1rem 0
+            cursor: pointer
+            a
+                text-decoration: none
+                color: $purple
+                &:hover
+                    color: $purple
+            .active
+                background-color: $purple-light
+                border-radius: 0.5em
+                padding: 0 0.5em 
+
+    .perfil
+        display: flex
+        align-items: center
+        .perfil__icon
+            width: 1.5rem
+            height: 1.5rem
+            border-radius: 50%
+            margin-right: 0.5rem
+            fill: $purple
+        .perfil__name
+            text-decoration: none
+            font-size: 1rem
+            font-weight: 500
+            color: $purple
+            letter-spacing: 1px
+            padding: 1rem 0
+            cursor: pointer
+
+.container
+    width: 85%
+    margin: 0 auto
+
+
+.table__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 1em 0
+    .table__title
+        font-size: 1.5rem
+        font-weight: 600
+        color: $purple
+        letter-spacing: 1px
+        padding: 1rem 0
+        span
+            font-size: 0.9rem
+            font-weight: 400
+            color: $purple_desatured
+            letter-spacing: 1px
+            padding: 1rem 0
+    .search
+        display: flex
+        align-items: center
+        .search_filter
+            color: $purple
+            font-size: 0.7rem
+        .search__icon
+            width: 1.5rem
+            height: 1.5rem
+            margin-right: 0.5rem
+            fill: $purple
+        .search__input
+            border: 1px solid $purple_desatured
+            border-radius: 0.5em
+            padding: 0.5em 1em
+    .buttons
+        display: flex
+        align-items: center
+        gap: 0.8em
+        .table__btn
+            height: 1.5rem
+            padding: 0 1em
+            border-radius: 0.5em
+            border: none
+            font-size: 0.6rem
+            cursor: pointer
+        .delete
+            background-color: red
+            color: $white
+            svg
+                fill: $white
+                width: 1.5rem
+                height: 1rem
+        .agregar
+            background-color: $purple
+            color: $white
+
+.table
+    width: 100%
+    background-color: $white
+    border-collapse: collapse
+    border-radius: 1em
+    overflow: hidden
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05)
+    thead
+        tr
+            color: $purple
+            text-align: left
+            font-weight: bold
+            border-bottom: 1px solid $gray
+            th
+                text-align: center
+                padding: 1em
+                &:nth-child(1)
+                    width: 5%
+                &:nth-child(2)
+                    width: 20%
+                &:nth-child(3)
+                    width: 20%
+                &:nth-child(4)
+                    width: 20%
+                &:nth-child(5)
+                    width: 20%
+                &:nth-child(6)
+                    width: 15%
+    tbody
+        tr
+            &:hover
+                background-color: $purple_light
+            td
+                padding: 1em
+                &:nth-child(1)
+                    width: 5%
+                &:nth-child(2)
+                    width: 20%
+                &:nth-child(3)
+                    width: 20%
+                &:nth-child(4)
+                    width: 20%
+                &:nth-child(5)
+                    width: 20%
+                &:nth-child(6)
+                    width: 15%
+.pagination
+    display: grid
+    grid-template-columns: 30% 70%
+    margin: 1em 0
+    .cant_items
+        display: flex
+        align-items: center
+        gap: 0.5em
+        .btn_cant
+            width: 1rem
+            height: 1rem
+            border-radius: 5px
+            border: 1px solid $purple_desatured
+            display: flex
+            justify-content: center
+            align-items: center
+            cursor: pointer
+            font-size: 1.2rem
+        .cant_text
+            width: 1rem
+            height: 1rem
+            border-radius: 5px
+            border: 1px solid $purple_desatured
+            display: flex
+            justify-content: center
+            align-items: center
+            font-size: 0.7rem
+        .cant_items__text
+            font-size: 0.6rem
+            font-weight: 500
+            color: $gray
+            padding: 1rem 0
+    .pagination_items
+        display: flex
+        align-items: center
+        .pagination_text
+            font-size: 0.7rem
+            font-weight: 500
+            padding: 1rem 0
+            margin: 0 0.5rem
+        .pagination_item
+            width: 1.6rem
+            height: 1.6rem
+            border: 1px solid $purple_desatured
+            display: flex
+            justify-content: center
+            align-items: center
+            cursor: pointer
+            &:nth-child(2)
+                border-radius: 0.5em 0 0 0.5em
+
+            &:last-child
+                border-radius: 0 0.5em 0.5em 0
+            
+.modal
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.5)
+    display: flex
+    justify-content: center
+    align-items: center
+    .modal__content
+        width: 80%
+        height: auto
+        background-color: $white
+        border-radius: 1em
+        padding: 2em
+        .modal__header
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin: 0 0 1em 0
+            .modal__title
+                font-size: 1.5rem
+                font-weight: 600
+                color: $purple
+                letter-spacing: 1px
+            .modal__close
+                width: 1.5rem
+                height: 1.5rem
+                display: flex
+                justify-content: center
+                align-items: center
+                cursor: pointer
+                border: none
+                background-color: transparent
+                svg
+                    fill: $gray
+                    width: 2rem
+                    height: 2rem
+        .modal__body
+            display: grid
+            grid-template-columns:70% 30%
+            gap: 1em
+            .modal__body__left
+                display: grid
+                grid-template-columns: 1fr 1fr
+                gap: 2em
+
+                .modal__body__left__img
+                    position: relative
+                    margin: 0 0 1em 0
+                    height: 20rem
+                    .modal__body__left__img__principal
+                        display: flex
+                        align-items: center
+                        width: 100%
+                        position: absolute
+                        padding: 0.5em
+                        input
+                            &:checked
+                                background-color: $purple
+                    .modal__body__left__img__box
+                        width: 100%
+                        height: 100%
+                        background-color: $purple_light
+                        border-radius: 1em
+                        margin: 0 0 1em 0
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                            border-radius: 1em
+                    .modal__body__left__img__btn
+                        background-color: $purple
+                        border: none
+                        border-radius: 0.5em
+                        padding: 0.5em
+                        color: $white
+                        cursor: pointer
+                .modal__body__left__form
+                    .modal__body__left__form__item
+                        display: flex
+                        flex-direction: column
+                        gap: 0.5em
+                        margin: 0 0 1em 0
+                        label
+                            font-size: 0.8rem
+                            font-weight: 500
+                        input
+                            border: 1px solid $purple_desatured
+                            border-radius: 0.5em
+                            padding: 0.5em 1em
+                            &:focus
+                                outline: none
+                                border: 1px solid $purple
+                        select
+                            border: 1px solid $purple_desatured
+                            border-radius: 0.5em
+                            padding: 0.5em 1em
+                            color: $purple
+                            &:focus
+                                outline: none
+                                border: 1px solid $purple
+                .modal__body__left__textarea
+                    grid-column: 1 / span 2
+                    textarea
+                        width: 100%
+                        height: 100%
+                        border: 1px solid $purple_desatured
+                        border-radius: 0.5em
+                        padding: 1em
+                        resize: none
+                        &:focus
+                            outline: none
+                            border: 1px solid $purple
+            .modal__body__right
+                display: flex
+                flex-direction: column
+                gap: 1em
+                justify-content: space-between
+                .modal__body__right__form
+                    .info
+                        font-size: 1.2rem
+                        font-weight: 500
+                    .modal__body__right__form__item
+                        display: flex
+                        flex-direction: column
+                        gap: 0.5em
+                        margin: 0 0 1em 0
+                        label
+                            font-size: 0.8rem
+                            font-weight: 500
+                        input
+                            border: 1px solid $purple_desatured
+                            border-radius: 0.5em
+                            padding: 0.5em 1em
+                            &:focus
+                                outline: none
+                                border: 1px solid $purple
+                        select
+                            border: 1px solid $purple_desatured
+                            border-radius: 0.5em
+                            padding: 0.5em 1em
+                            color: $purple
+                            &:focus
+                                outline: none
+                                border: 1px solid $purple
+                .modal__body__right__destacado
+                    display: flex
+                    align-items: center
+                    gap: 1em
+                    .modal__body__right__destacado__item
+
+                .modal__body__right__buttons
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    gap: 1em
+                    .modal__body__right__buttons__btn
+                        padding: 0.5em 1em
+                        border: none
+                        border-radius: 0.5em
+                        cursor: pointer
+                        &:nth-child(1)
+                            background-color: $purple
+                            color: $white
+                        &:nth-child(2)
+                            color: $purple
+                            border: 1px solid $purple
+                        
+.modal__close
+    display: none  
+.modal__open
+    display: flex               
+
+.modal_warnings
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.5)
+    display: flex
+    justify-content: center
+    align-items: center
+    .modal_warnings_content
+        width: 30%
+        height: auto
+        background-color: $white
+        border-radius: 1em
+        padding: 2em
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 1em
+        .warning__icon
+            width: 5rem
+            height: 5rem
+            display: flex
+            justify-content: center
+            svg
+                fill: #8a1111
+                width: 3rem
+                height: 3rem
+        .warning__contend
+            .warning__title
+                h1
+                    font-size: 1.5rem
+                    font-weight: 600
+                    letter-spacing: 1px
+                p 
+                    font-size: 1rem
+                    font-weight: 500
+            .warning__buttons
+                display: flex
+                justify-content: flex-end
+                align-items: center
+                gap: 1em
+                .warning__buttons__btn
+                    padding: 0.5em 1em
+                    border: none
+                    border-radius: 0.5em
+                    cursor: pointer
+                    &:nth-child(1)
+                        background-color: #f48383
+                        color: #8a1111
+                    &:nth-child(2)
+                        color: #8a1111
+                        border: 1px solid #8a1111
+
+.modal_warnings__close
+    display: none    
+.modal_warnings__open
+    display: flex          
+.error
+    color: #8a1111
+    font-size: 0.8rem
+    font-weight: 500
+    margin: -0.5em 0 0 0

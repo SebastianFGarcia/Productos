@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--Barra de navegacion-->
+    <nav class="nav">
+        <div class="nav__logo">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <ul class="nav__links">
+            <li class="nav__link"><a href="#">Inicio</a></li>
+            <li class="nav__link"><a href="#" class="active">Productos</a></li>
+            <li class="nav__link"><a href="#">Compras</a></li>
+            <li class="nav__link"><a href="#">Inventario</a></li>
+            <li class="nav__link"><a href="#">Ventas</a></li>
+            <li class="nav__link"><a href="#">Adicionales</a></li>
+        </ul>
+        <div class="perfil">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="perfil__icon">
+                <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+            </svg>
+            <a class="perfil__name" href="#">Perfil</a>
+        </div>
+    </nav>
+    <!--crud-->
+    <div class="container">
+        <div class="table__header">
+            <h1 class="table__title">Productos <span># de items</span></h1>
+            <div class="search">
+                <p class="search_filter">Filtro</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="search__icon">
+                    <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                  </svg>
+                  
+                <input type="text" class="search__input" placeholder="Buscar">
+            </div>
+            <div class="buttons">
+                <button class="table__btn delete" id="btn__eliminar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+                    <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+                  </svg>
+                  </button>
+                <button id="agregar" class="table__btn agregar">Agregar nuevo producto</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" class="checkall" id="checkall"></th>
+                    <th>ID</th>
+                    <th>Imágen</th>
+                    <th>UID</th>
+                    <th>Referencia</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Subcategoria</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+        <div class="pagination">
+            <div class="cant_items">
+                <button class="btn_cant">-</button>
+                <p class="cant_text">3</p>
+                <button class="btn_cant">+</button>
+                <p class="cant_items__text">Entradas por pagina</p>
+            </div>
+            <div class="pagination_items">
+                <p class="pagination_text">Total 15 items</p>
+                <button class="pagination_item"><</button>
+                <button class="pagination_item">1</button>
+                <button class="pagination_item" disabled>...</button>
+                <button class="pagination_item">4</button>
+                <button class="pagination_item">5</button>
+                <button class="pagination_item">6</button>
+                <button class="pagination_item">7</button>
+                <button class="pagination_item">8</button>
+                <button class="pagination_item" disabled>...</button>
+                <button class="pagination_item">9</button>
+                <button class="pagination_item">></button>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal__close" id="modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h1 class="modal__title">Agregar nuevo producto</h1>
+                <button class="modal__close" id="modal__close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M13.354 12l5.646 5.646a.5.5 0 01-.708.708L12 12.707l-5.646 5.647a.5.5 0 01-.708-.708L11.293 12 5.646 6.354a.5.5 0 01.708-.708L12 11.293l5.646-5.647a.5.5 0 01.708.708L12.707 12z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+            </div>
+            <div class="modal__body">
+                <div class="modal__body__left">
+                    <div class="modal__body__left__img">
+                        <div class="modal__body__left__img__principal">
+                            <input type="checkbox" class="check">
+                            <label>Seleccionar como principal</label>
+                        </div>
+                        <div class="modal__body__left__img__box">
+                            <img src="img/img1.jpg" alt="img">
+                        </div>
+                        <button class="modal__body__left__img__btn">Subir imágenes</button>
+                    </div>
+                    <div class="modal__body__left__form">
+                        <div class="modal__body__left__form__item">
+                            <label for="nombre">Nombre del producto</label>
+                            <input type="text" id="nombre">
+                        </div>
+                        <div class="modal__body__left__form__item">
+                            <label for="descripcion">Descripción del producto</label>
+                            <input type="text" id="descripcion">
+                        </div>
+                        <div class="modal__body__left__form__item">
+                            <label for="uid">UID</label>
+                            <input type="text" id="uid">
+                        </div>
+                        <div class="modal__body__left__form__item">
+                            <label for="referencia">Referencia</label>
+                            <input type="text" id="referencia">
+                        </div>
+                        <div class="modal__body__left__form__item">
+                            <label for="variante1">Variante</label>
+                            <select name="variante1" id="variante1">
+                                <option value="0">Elegir Variante</option>
+                            </select>
+                        </div>
+                        <div class="modal__body__left__form__item">
+                            <label for="variante2">Variante</label>
+                            <select name="variante2" id="variante2">
+                                <option value="0">Elegir Variante</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal__body__left__textarea">
+                        <div class="modal__body__left__textarea__item">
+                            <label for="especificacion">Especificación del producto</label>
+                            <textarea name="especificacion" id="especificacion" cols="20" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__body__right">
+                    <div class="modal__body__right__form">
+                        <p class="info">Información</p>
+                        <!--categoria-->
+                        <div class="modal__body__right__form__item">
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria">
+                                <option value="0">Elegir Categoria</option>
+                            </select>
+                        </div>
+                        <!--subcategoria-->
+                        <div class="modal__body__right__form__item">
+                            <label for="subcategoria">Subcategoria</label>
+                            <select name="subcategoria" id="subcategoria">
+                                <option value="0">Elegir Subcategoria</option>
+                            </select>
+                        </div>
+                        <!--tags-->
+                        <div class="modal__body__right__form__item">
+                            <label for="tags">Tags</label>
+                            <select name="tags" id="tags">
+                                <option value="0">Elegir Tags</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal__body__right__destacado">
+                        <div class="modal__body__right__destacado__item">
+                            <input id="destacado" type="checkbox" class="check">
+                            <label for="destacado">Destacado</label>
+                        </div>
+                    </div>
+                    <div class="modal__body__right__buttons">
+                        <button id="guardar_cambios" class="modal__body__right__buttons__btn">Guardar cambios</button>
+                        <button class="modal__body__right__buttons__btn" id="cancelar_cambios">Cancelar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal_warnings modal_warnings__close" id="modal_warnig">
+        <div class="modal_warnings_content">
+            <div class="warning__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm.5 4a.5.5 0 00-.5.5v5a.5.5 0 001 0v-5a.5.5 0 00-.5-.5zm0 6a.5.5 0 00-.5.5v1a.5.5 0 001 0v-1a.5.5 0 00-.5-.5z" clip-rule="evenodd" />
+                  </svg>
+            </div>
+            <div class="warning__contend">
+                <div class="warning__title">
+                    <h1>Advertencia</h1>
+                    <p>¿Estas seguro de eliminar el producto?</p>
+                </div>
+                <div class="warning__buttons">
+                    <button class="warning__buttons__btn" id="btn__si">Sí</button>
+                    <button class="warning__buttons__btn" id="btn__no">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
